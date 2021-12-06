@@ -27,12 +27,12 @@ dir structure should look
 ```
 ### Run
 
-perform recon
+Perform recon
 ```
 act -b . -W workflow-ymls/recon.yml -j recon-domain --env TARGET_DOMAIN=your-target.com
 ```
 
-To scan single target with multple scan-jobs
+Scan single target
 ```
 act -b . -W workflow-ymls/scan-target.yml -j Scan_Url --env TARGET_URL=https://your-target.com
 ```
