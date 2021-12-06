@@ -5,8 +5,7 @@
 
 ### Benifits
   - Your actions/scans run locally
-  - No limits on Github runners (timeouts,API calls limits)
-  - No Cost - run unlimited jobs
+  - you can overcome some usage limits, this is required for some security scans - [https://docs.github.com/en/actions/hosting-your-own-runners/about-self-hosted-runners#usage-limits](https://docs.github.com/en/actions/hosting-your-own-runners/about-self-hosted-runners#usage-limits)
 
 ### Setup
 ```
