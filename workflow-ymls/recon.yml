@@ -1,15 +1,11 @@
 name: Recon
 
-#on: [push] # This is a trigger https://docs.github.com/en/actions/reference/events-that-trigger-workflows
 on: workflow_dispatch # manual trigger
 
 jobs:
   recon-domain:
-  # The OS for which will be used.
-  # You can specify the exact version if you want.
     runs-on: ubuntu-latest
 
-    # From here we just define all the steps that we have to do.
     steps:
       - name: Checkout Repo
         uses: actions/checkout@v2
