@@ -1,0 +1,39 @@
+name: Scanner
+
+on: workflow_dispatch #manual trigger
+
+jobs:
+  Scan_Url:
+  # The OS for which will be used.
+  # You can specify the exact version if you want.
+    runs-on: ubuntu-latest
+
+    # From here we just define all the steps that we have to do.
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v2
+      
+      # Install golang
+      - name: Setup golang
+        uses: actions/setup-go@v2
+        with:
+          go-version: '^1.17.4'
+      
+      - name: Setup go tools
+        run: |
+          go version
+          GO111MODULE=on go get -v github.com/projectdiscovery/nuclei/v2/cmd/nuclei
+          GO111MODULE=on go get -v github.com/OJ/gobuster/v3@latest
+      
+      - name: Nuclei - DAST Scan
+        run: nuclei -u ${{env.TARGET_URL}} -o reports/nuclei/output.txt -stats
+      
+      - name: Gobuster - Dir Scan
+        run: gobuster dir -u ${{env.TARGET_URL}} -k -b 403,404 -o reports/gobuster/output.txt -w wordlist/quickhits.txt --wildcard
+      
+      # - name: ZAP Scan
+      #   uses: zaproxy/action-full-scan@v0.3.0
+      #   with:
+      #     target: ${{env.TARGET_URL}}
+  
+
