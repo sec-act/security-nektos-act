@@ -19,6 +19,8 @@ dir structure should look
   |- reports (create if not present with sub-dirs)
   |  |-nuclei
   |  |-gobuster
+  |  |-subfinder
+  |  |-httpx
   |
   |- wordlist
   |- workflow-ymls
