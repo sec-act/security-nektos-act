@@ -1,0 +1,1 @@
+gobuster dir -u https://hackerone.com -k -b 403,404 -o reports/gobuster/output.txt -w wordlist/quickhits.txt --wildcard

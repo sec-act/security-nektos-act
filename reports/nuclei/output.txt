@@ -1,0 +1,15 @@
+[2021-12-06 12:33:44] [mx-service-detector:Google Apps] [dns] [info] https://hackerone.com
+[2021-12-06 12:34:00] [tech-detect:jsdelivr] [http] [info] https://hackerone.com
+[2021-12-06 12:34:00] [tech-detect:google-tag-manager] [http] [info] https://hackerone.com
+[2021-12-06 12:34:00] [tech-detect:drupal] [http] [info] https://hackerone.com
+[2021-12-06 12:34:00] [tech-detect:cloudflare] [http] [info] https://hackerone.com
+[2021-12-06 12:34:00] [tech-detect:cloudflare] [http] [info] https://hackerone.com
+[2021-12-06 12:34:56] [http-missing-security-headers:access-control-allow-origin] [http] [info] https://hackerone.com
+[2021-12-06 12:34:56] [http-missing-security-headers:access-control-allow-credentials] [http] [info] https://hackerone.com
+[2021-12-06 12:34:56] [http-missing-security-headers:access-control-expose-headers] [http] [info] https://hackerone.com
+[2021-12-06 12:34:56] [http-missing-security-headers:clear-site-data] [http] [info] https://hackerone.com
+[2021-12-06 12:34:56] [http-missing-security-headers:cross-origin-opener-policy] [http] [info] https://hackerone.com
+[2021-12-06 12:34:56] [http-missing-security-headers:cross-origin-resource-policy] [http] [info] https://hackerone.com
+[2021-12-06 12:34:56] [http-missing-security-headers:cross-origin-embedder-policy] [http] [info] https://hackerone.com
+[2021-12-06 12:34:56] [http-missing-security-headers:access-control-max-age] [http] [info] https://hackerone.com
+[2021-12-06 12:34:56] [http-missing-security-headers:access-control-allow-methods] [http] [info] https://hackerone.com

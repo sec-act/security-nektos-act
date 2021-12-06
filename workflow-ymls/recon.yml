@@ -1,0 +1,39 @@
+name: Recon
+
+#on: [push] # This is a trigger https://docs.github.com/en/actions/reference/events-that-trigger-workflows
+on: workflow_dispatch # manual trigger
+
+jobs:
+  recon-domain:
+  # The OS for which will be used.
+  # You can specify the exact version if you want.
+    runs-on: ubuntu-latest
+
+    # From here we just define all the steps that we have to do.
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v2
+
+      # Install golang
+      - name: Setup golang
+        uses: actions/setup-go@v2
+        with:
+          go-version: '^1.17.4'
+
+      - name: Setup go tools
+        run: |
+          go version
+          GO111MODULE=on go get github.com/projectdiscovery/subfinder/v2/cmd/subfinder
+          GO111MODULE=on go get github.com/projectdiscovery/httpx/cmd/httpx
+          GO111MODULE=on go get github.com/projectdiscovery/nuclei/v2/cmd/nuclei
+
+      - name: Subfinder Scan
+        run: subfinder -silent -d ${{env.TARGET_DOMAIN}} -o reports/subfinder/${{env.TARGET_DOMAIN}}_subfinder.txt
+      
+      - name: Run httpx
+        run: cat reports/subfinder/${{env.TARGET_DOMAIN}}_subfinder.txt | httpx > reports/httpx/${{env.TARGET_DOMAIN}}_subdomains_httpx.txt
+      
+      - name: Run nuclei
+        run: nuclei -l reports/httpx/${{env.TARGET_DOMAIN}}_subdomains_httpx.txt -o reports/nuclei/${{env.TARGET_DOMAIN}}_output.txt -stats
+
+# you can add more tools 
