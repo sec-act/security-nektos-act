@@ -9,12 +9,12 @@
 
 ### Setup
 ```
-git clone https://github.com/sec-act/security-with-github-actions.git
-cd security-with-github-actions
+git clone https://github.com/sec-act/security-auto-with-github-actions.git
+cd security-auto-with-github-actions
 ```
 dir structure should look
 ```
-  security-with-github-actions
+  security-auto-with-github-actions
   |
   |- reports (create if not present with sub-dirs)
   |  |-nuclei
