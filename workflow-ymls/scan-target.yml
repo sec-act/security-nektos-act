@@ -26,7 +26,7 @@ jobs:
         run: nuclei -u ${{env.TARGET_URL}} -o reports/nuclei/output.txt -stats
       
       - name: Gobuster - Dir Scan
-        run: gobuster dir -u ${{env.TARGET_URL}} -k -b 403,404 -o reports/gobuster/output.txt -w wordlist/quickhits.txt --wildcard
+        run: gobuster dir -u ${{env.TARGET_URL}} -k -b 403,404,429 -o reports/gobuster/output.txt -w wordlist/quickhits.txt --wildcard
       
       # - name: ZAP Scan
       #   uses: zaproxy/action-full-scan@v0.3.0
