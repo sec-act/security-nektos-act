@@ -33,7 +33,7 @@ Perform recon
 act -b . -W workflow-ymls/recon.yml -j recon-domain --env TARGET_DOMAIN=your-target.com
 ```
 
-Scan single target
+Scan single target(url)
 ```
 act -b . -W workflow-ymls/scan-target.yml -j Scan_Url --env TARGET_URL=https://your-target.com
 ```
