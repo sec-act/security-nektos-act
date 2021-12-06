@@ -24,6 +24,7 @@ dir structure should look
   |- workflow-ymls
 ```
 ### Run
+To scan single target with multple scan-jobs
 ```
 act -b . -W workflow-ymls/scan-target.yml -j Scan_Url --env TARGET_URL=https://your-target.com
 ```
