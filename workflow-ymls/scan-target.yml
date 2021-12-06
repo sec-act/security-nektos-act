@@ -4,11 +4,8 @@ on: workflow_dispatch #manual trigger
 
 jobs:
   Scan_Url:
-  # The OS for which will be used.
-  # You can specify the exact version if you want.
     runs-on: ubuntu-latest
-
-    # From here we just define all the steps that we have to do.
+    
     steps:
       - name: Checkout Repo
         uses: actions/checkout@v2
