@@ -1,9 +1,12 @@
 # security-with-github-actions
 
-
-
 ### Pre-requisites
   - install nektos/act (think globally, act locally) [https://github.com/nektos/act](https://github.com/nektos/act) :clap: :clap: :handshake:
+
+### Benifits
+  - Your actions/scan run locally
+  - No limits on Github runners (timeouts,API calls limits)
+  - No Cost - run unlimited jobs
 
 ### Setup
 ```
