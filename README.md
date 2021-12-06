@@ -1,4 +1,4 @@
-# security-automation-with-github-actions
+# security automation with github actions locally
 
 ### Pre-requisites
   - install nektos/act (think globally, act locally) [https://github.com/nektos/act](https://github.com/nektos/act) :clap: :clap: :handshake:
