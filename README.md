@@ -1,7 +1,7 @@
 # security automation with github actions locally
 
 ### Pre-requisites
-  - install nektos/act (think globally, act locally) [https://github.com/nektos/act](https://github.com/nektos/act) :clap: :clap: :handshake:
+  - install `nektos/act` (think globally, act locally) [https://github.com/nektos/act](https://github.com/nektos/act) :clap: :clap: :handshake:
 
 ### Benifits
   - Your actions/scans run locally
