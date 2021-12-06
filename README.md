@@ -5,7 +5,7 @@
 
 ### Benifits
   - Your actions/scans run locally
-  - you can overcome some usage limits, this is required for some security scans - [https://docs.github.com/en/actions/hosting-your-own-runners/about-self-hosted-runners#usage-limits](https://docs.github.com/en/actions/hosting-your-own-runners/about-self-hosted-runners#usage-limits)
+  - you can overcome most of these usage limits, this is required for some security scans - [https://docs.github.com/en/actions/hosting-your-own-runners/about-self-hosted-runners#usage-limits](https://docs.github.com/en/actions/hosting-your-own-runners/about-self-hosted-runners#usage-limits)
 
 ### Setup
 ```
