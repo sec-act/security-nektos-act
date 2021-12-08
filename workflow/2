@@ -1,3 +1,0 @@
-go version
-GO111MODULE=on go get -v github.com/projectdiscovery/nuclei/v2/cmd/nuclei
-GO111MODULE=on go get -v github.com/OJ/gobuster/v3@latest
