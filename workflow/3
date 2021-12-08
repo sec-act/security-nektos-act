@@ -1,0 +1,1 @@
+nuclei -u https://manage.wix.com -o reports/nuclei/$(echo https://manage.wix.com | awk -F[/:] '{print $4}')_output.txt -stats

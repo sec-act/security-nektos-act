@@ -1,0 +1,1 @@
+gobuster dir -u https://manage.wix.com -k -b 403,404,429 -o reports/gobuster/$(echo https://manage.wix.com | awk -F[/:] '{print $4}')_output.txt -w wordlist/quickhits.txt --wildcard
