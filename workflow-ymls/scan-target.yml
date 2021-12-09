@@ -7,7 +7,7 @@ jobs:
   nuclei_scan:
     runs-on: ubuntu-latest
     container:
-      image: kotireddytest1/nuclei-scanner:v2.5.3-2
+      image: kotireddytest1/nuclei-scanner-only:v2.5.3
     steps:
       - name: Nuclei Scan
         run: |
