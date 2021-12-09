@@ -21,9 +21,9 @@ jobs:
     steps:
       - name: Gobuster Scan
         run: |
-          /gobuster_scan/gobuster dir -u ${{env.TARGET_URL}} -k -b 400,403,404,429 -e -o reports/gobuster/$(echo ${{env.TARGET_URL}} | awk -F[/:] '{print $4}')_quickhits.txt -w wordlist/quickhits.txt --wildcard
-          /gobuster_scan/gobuster dir -u ${{env.TARGET_URL}} -k -b 400,403,404,429 -e -o reports/gobuster/$(echo ${{env.TARGET_URL}} | awk -F[/:] '{print $4}')_web-content-1.txt -w wordlist/web-content-1.txt --wildcard
-          /gobuster_scan/gobuster dir -u ${{env.TARGET_URL}} -k -b 400,403,404,429 -e -o reports/gobuster/$(echo ${{env.TARGET_URL}} | awk -F[/:] '{print $4}')_web-content-2.txt -w wordlist/web-content-2.txt --wildcard
+          /gobuster_scan/gobuster dir -u ${{env.TARGET_URL}} -k -b 400,403,404,429 -e -t 5 -o reports/gobuster/$(echo ${{env.TARGET_URL}} | awk -F[/:] '{print $4}')_quickhits.txt -w wordlist/quickhits.txt --wildcard
+          /gobuster_scan/gobuster dir -u ${{env.TARGET_URL}} -k -b 400,403,404,429 -e -t 5 -o reports/gobuster/$(echo ${{env.TARGET_URL}} | awk -F[/:] '{print $4}')_web-content-1.txt -w wordlist/web-content-1.txt --wildcard
+          /gobuster_scan/gobuster dir -u ${{env.TARGET_URL}} -k -b 400,403,404,429 -e -t 5 -o reports/gobuster/$(echo ${{env.TARGET_URL}} | awk -F[/:] '{print $4}')_web-content-2.txt -w wordlist/web-content-2.txt --wildcard
 
   nmap_scan:
     runs-on: ubuntu-latest
@@ -34,7 +34,7 @@ jobs:
           outputDir: 'reports/nmap/${{env.TARGET_DOMAIN}}'
           #outputDir: 'scans'
           outputFile: 'nmapvuln.json'
-          raw: false
+          raw: true
           withVulnerabilities: true
 
 
