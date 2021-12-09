@@ -3,50 +3,7 @@ name: Scanner
 on: workflow_dispatch #manual trigger
 
 jobs:
-  Scan_Url:
-    runs-on: ubuntu-latest
-    
-    steps:
-      - name: Checkout Repo
-        uses: actions/checkout@v2
-      
-      # Install golang
-      - name: Setup golang
-        uses: actions/setup-go@v2
-        with:
-          go-version: '^1.17.4'
-      
-      - name: Setup go tools
-        run: |
-          go version
-          GO111MODULE=on go get -v github.com/projectdiscovery/nuclei/v2/cmd/nuclei
-          GO111MODULE=on go get -v github.com/OJ/gobuster/v3@latest
-      
-      - name: Nuclei - DAST Scan
-        run: nuclei -u ${{env.TARGET_URL}} -o reports/nuclei/$(echo ${{env.TARGET_URL}} | awk -F[/:] '{print $4}')_output.txt -stats
-      
-      - name: Uploading Nuclei scan results
-        run: echo "uploading"
 
-      - name: Gobuster - Dir Scan
-        run: |
-          gobuster dir -u ${{env.TARGET_URL}} -k -b 400,403,404,429 -o reports/gobuster/$(echo ${{env.TARGET_URL}} | awk -F[/:] '{print $4}')_quickhits.txt -w wordlist/quickhits.txt --wildcard
-          #gobuster dir -u ${{env.TARGET_URL}} -k -b 400,403,404,429 -o reports/gobuster/$(echo ${{env.TARGET_URL}} | awk -F[/:] '{print $4}')_web-content-1.txt -w wordlist/web-content-1.txt --wildcard
-          #gobuster dir -u ${{env.TARGET_URL}} -k -b 400,403,404,429 -o reports/gobuster/$(echo ${{env.TARGET_URL}} | awk -F[/:] '{print $4}')_web-content-2.txt -w wordlist/web-content-2.txt --wildcard
-
-      - name: Uploading Gobuster scan results
-        run: echo "uploading"
-      
-
-      - name: Report Generate
-        run: |
-          echo "starting report generation"
-
-      # - name: ZAP Scan
-      #   uses: zaproxy/action-full-scan@v0.3.0
-      #   with:
-      #     target: ${{env.TARGET_URL}}
-  
   nmap_scan:
     runs-on: ubuntu-latest
     steps:
@@ -78,3 +35,12 @@ jobs:
       - name: Nuclei Scan
         run: |
           /nuclei_scan/nuclei -u ${{env.TARGET_URL}} -o reports/nuclei/$(echo ${{env.TARGET_URL}} | awk -F[/:] '{print $4}')_output.txt -stats
+
+# zap tool action
+      # - name: ZAP Scan
+      #   uses: zaproxy/action-full-scan@v0.3.0
+      #   with:
+      #     target: ${{env.TARGET_URL}}
+
+
+
