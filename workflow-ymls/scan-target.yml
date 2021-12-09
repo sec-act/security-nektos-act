@@ -47,7 +47,7 @@ jobs:
       #   with:
       #     target: ${{env.TARGET_URL}}
   
-  Scan_nmap:
+  nmap_scan:
     runs-on: ubuntu-latest
     steps:
       - uses: "MTES-MCT/nmap-action@main"
@@ -59,11 +59,22 @@ jobs:
           raw: false
           withVulnerabilities: true
 
-  scan_gobuster:
+  gobuster_scan:
     runs-on: ubuntu-latest
     container:
       image: kotireddytest1/gobuster_scanner:v3.1.0
     steps:
-      - name: GoBuster Scan
+      - name: Gobuster Scan
         run: |
           /gobuster_scan/gobuster dir -u ${{env.TARGET_URL}} -k -b 400,403,404,429 -o reports/gobuster/$(echo ${{env.TARGET_URL}} | awk -F[/:] '{print $4}')_quickhits.txt -w wordlist/quickhits.txt --wildcard
+          /gobuster_scan/gobuster dir -u ${{env.TARGET_URL}} -k -b 400,403,404,429 -o reports/gobuster/$(echo ${{env.TARGET_URL}} | awk -F[/:] '{print $4}')_web-content-1.txt -w wordlist/web-content-1.txt --wildcard
+          /gobuster_scan/gobuster dir -u ${{env.TARGET_URL}} -k -b 400,403,404,429 -o reports/gobuster/$(echo ${{env.TARGET_URL}} | awk -F[/:] '{print $4}')_web-content-2.txt -w wordlist/web-content-2.txt --wildcard
+
+  nuclei_scan:
+    runs-on: ubuntu-latest
+    container:
+      image: kotireddytest1/nuclei-scanner:v2.5.3-1
+    steps:
+      - name: Nuclei Scan
+        run: |
+          /nuclei_scan/nuclei -u ${{env.TARGET_URL}} -o reports/nuclei/$(echo ${{env.TARGET_URL}} | awk -F[/:] '{print $4}')_output.txt -stats
