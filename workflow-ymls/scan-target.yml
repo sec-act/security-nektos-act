@@ -28,11 +28,17 @@ jobs:
   nmap_scan:
     runs-on: ubuntu-latest
     steps:
+      - id: set_env
+        run: |
+          export TARGET_DOMAIN=$(echo ${{env.TARGET_URL}} | awk -F[/:] '{print $4}')
+          echo "::set-output name=TARGET_DOMAIN::${TARGET_DOMAIN}"
+        outputs: 
+          TARGET_DOMAIN::${{steps.set_env.outputs.TARGET_DOMAIN}}
+      
       - uses: "MTES-MCT/nmap-action@main"
         with:
-          host: ${{env.TARGET_DOMAIN}}
-          outputDir: 'reports/nmap/${{env.TARGET_DOMAIN}}'
-          #outputDir: 'scans'
+          host: ${{steps.set_env.outputs.TARGET_DOMAIN}}
+          outputDir: 'reports/nmap/${{steps.set_env.outputs.TARGET_DOMAIN}}'
           outputFile: 'nmapvuln.json'
           raw: true
           withVulnerabilities: true
