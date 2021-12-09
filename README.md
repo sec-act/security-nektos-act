@@ -3,7 +3,7 @@
 ### Pre-requisites
   - install `nektos/act` (think globally, act locally) [https://github.com/nektos/act](https://github.com/nektos/act) :clap: :clap: :handshake:
 
-### Benifits
+### Benefits
   - Your actions/scans run locally
   - you can overcome most of these usage limits - [https://docs.github.com/en/actions/hosting-your-own-runners/about-self-hosted-runners#usage-limits](https://docs.github.com/en/actions/hosting-your-own-runners/about-self-hosted-runners#usage-limits)
   - useful for some security scans
