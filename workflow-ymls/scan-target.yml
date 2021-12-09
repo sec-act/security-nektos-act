@@ -66,5 +66,4 @@ jobs:
     steps:
       - name: GoBuster Scan
         run: |
-          go version
           /gobuster_scan/gobuster dir -u ${{env.TARGET_URL}} -k -b 400,403,404,429 -o reports/gobuster/$(echo ${{env.TARGET_URL}} | awk -F[/:] '{print $4}')_quickhits.txt -w wordlist/quickhits.txt --wildcard
