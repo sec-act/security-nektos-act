@@ -28,19 +28,26 @@ dir structure should look
 ```
 ### Run
 
-Perform recon
+Scan single target(url) and single job
 ```
-act -b . -W workflow-ymls/recon.yml -j recon-domain --env TARGET_DOMAIN=your-target.com
+act -b . -W workflow-ymls/scan-target.yml --env TARGET_URL=https://your-target.com -j nmap_scan
+```
+```
+act -b . -W workflow-ymls/scan-target.yml --env TARGET_URL=https://your-target.com -j nuclei_scan
 ```
 
-Scan single target(url)
 ```
-act -b . -W workflow-ymls/scan-target.yml -j Scan_Url --env TARGET_URL=https://your-target.com
+act -b . -W workflow-ymls/scan-target.yml --env TARGET_URL=https://your-target.com -j gobuster_scan
 ```
 
 container reuse mode (saves build time but your container keep running it seems)
 ```
 act -b . -W workflow-ymls/scan-target.yml -j Scan_Url --env TARGET_URL=https://your-target.com -r
+```
+
+Perform recon
+```
+act -b . -W workflow-ymls/recon.yml -j recon-domain --env TARGET_DOMAIN=your-target.com
 ```
 
 ### Output Results
