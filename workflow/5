@@ -1,0 +1,3 @@
+gobuster dir -u https://www.walmart.com -k -b 400,403,404,429 -o reports/gobuster/$(echo https://www.walmart.com | awk -F[/:] '{print $4}')_quickhits.txt -w wordlist/quickhits.txt --wildcard
+#gobuster dir -u https://www.walmart.com -k -b 400,403,404,429 -o reports/gobuster/$(echo https://www.walmart.com | awk -F[/:] '{print $4}')_web-content-1.txt -w wordlist/web-content-1.txt --wildcard
+#gobuster dir -u https://www.walmart.com -k -b 400,403,404,429 -o reports/gobuster/$(echo https://www.walmart.com | awk -F[/:] '{print $4}')_web-content-2.txt -w wordlist/web-content-2.txt --wildcard

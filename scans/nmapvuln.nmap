@@ -1,0 +1,11 @@
+# Nmap 7.91 scan initiated Thu Dec  9 03:06:55 2021 as: nmap -sV --script vulners --script-args mincvss=5.0 -oA /data/nmapvuln www.walmart.com
+Nmap scan report for www.walmart.com (104.120.163.243)
+Host is up (0.0014s latency).
+rDNS record for 104.120.163.243: a104-120-163-243.deploy.static.akamaitechnologies.com
+Not shown: 998 filtered ports
+PORT    STATE SERVICE  VERSION
+80/tcp  open  http     AkamaiGHost (Akamai's HTTP Acceleration/Mirror service)
+443/tcp open  ssl/http AkamaiGHost (Akamai's HTTP Acceleration/Mirror service)
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+# Nmap done at Thu Dec  9 03:07:24 2021 -- 1 IP address (1 host up) scanned in 29.53 seconds

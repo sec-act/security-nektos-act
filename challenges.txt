@@ -1,0 +1,12 @@
+in this file I am going to add challenges that are facing when improving these workflows
+
+1. sometimes actions (docker images) are failed to fetch
+    planned mitigation -try to keep it in local registries or have your own dockerhub registry
+2. generally a job has multiple steps. for example a job has 3 steps,each step can be a scan that cab be a nuclei scan or gobuster scan. 
+    if any step failed, we need to run the job again. what if a last step failed out of 10 steps
+    planned mitigation - may be it is good to have only one step/task/scan for a job
+3. when we run any job, it is taking more time to spin-up(running docker, setting up tools, loading packages from internet etc)
+    planned mitigations - 
+        1. build docker images with readily available binaries without downloading packages at runtime
+            for example - A Dockerfile with nuclei binary, this way you can run nuclei scan when docker image initiation(No packaging required)
+        2. maintain a local docker registry
