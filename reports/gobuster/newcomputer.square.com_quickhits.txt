@@ -1,4 +1,0 @@
-//README.md           (Status: 200) [Size: 33]
-//configs/conf_bdd.ini (Status: 503) [Size: 54887]
-//test                (Status: 301) [Size: 162] [--> https://newcomputer.square.com/test/]
-//test/               (Status: 200) [Size: 7695]
