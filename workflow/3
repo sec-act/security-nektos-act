@@ -1,1 +1,0 @@
-nuclei -u https://www.walmart.com -o reports/nuclei/$(echo https://www.walmart.com | awk -F[/:] '{print $4}')_output.txt -stats
