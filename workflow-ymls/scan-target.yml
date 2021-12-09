@@ -7,11 +7,12 @@ jobs:
   nuclei_scan:
     runs-on: ubuntu-latest
     container:
-      image: kotireddytest1/nuclei-scanner:v2.5.3-1
+      image: kotireddytest1/nuclei-scanner:v2.5.3-2
     steps:
       - name: Nuclei Scan
         run: |
-          /nuclei_scan/nuclei -u ${{env.TARGET_URL}} -o reports/nuclei/$(echo ${{env.TARGET_URL}} | awk -F[/:] '{print $4}')_output.txt -stats
+          git -C /nuclei_scan/nuclei-templates pull
+          /nuclei_scan/nuclei -u ${{env.TARGET_URL}} -t /nuclei_scan/nuclei-templates/ -o reports/nuclei/$(echo ${{env.TARGET_URL}} | awk -F[/:] '{print $4}')_output.txt -stats
 
   gobuster_scan:
     runs-on: ubuntu-latest
