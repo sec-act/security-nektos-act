@@ -42,7 +42,7 @@ act -b . -W workflow-ymls/scan-target.yml --env TARGET_URL=https://your-target.c
 
 container reuse mode (saves build time but your container keep running it seems)
 ```
-act -b . -W workflow-ymls/scan-target.yml -j Scan_Url --env TARGET_URL=https://your-target.com -r
+act -b . -W workflow-ymls/scan-target.yml -j xxx --env TARGET_URL=https://your-target.com -r
 ```
 
 Perform recon
