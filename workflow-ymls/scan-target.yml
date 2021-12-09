@@ -59,10 +59,12 @@ jobs:
           raw: false
           withVulnerabilities: true
 
-  Scan_Gobuster:
+  scan_gobuster:
     runs-on: ubuntu-latest
+    container:
+      image: kotireddytest1/gobuster_scanner:v3.1.0
     steps:
-      - name: hello world
-        uses: sec-act/gobuster-action@main
-        with:
-          who-to-greet: 'Mona the Octocat'
+      - name: GoBuster Scan
+        run: |
+          go version
+          /gobuster_scan/gobuster dir -u ${{env.TARGET_URL}} -k -b 400,403,404,429 -o reports/gobuster/$(echo ${{env.TARGET_URL}} | awk -F[/:] '{print $4}')_quickhits.txt -w wordlist/quickhits.txt --wildcard
