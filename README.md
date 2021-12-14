@@ -60,4 +60,6 @@ You should see the results in reports folders - check reports/nuclei and reports
 Feel free to contribute your security workflows to this repository. Thank you! 🙏 
 ```
 
+### Blog
+  [https://medium.com/@koti2/security-automation-with-github-actions-locally-with-nektos-act-5fa71d1d761a](https://medium.com/@koti2/security-automation-with-github-actions-locally-with-nektos-act-5fa71d1d761a)
 
