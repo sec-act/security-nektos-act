@@ -19,9 +19,9 @@ jobs:
       - name: Setup go tools
         run: |
           go version
-          GO111MODULE=on go get github.com/projectdiscovery/subfinder/v2/cmd/subfinder
-          GO111MODULE=on go get github.com/projectdiscovery/httpx/cmd/httpx
-          GO111MODULE=on go get github.com/projectdiscovery/nuclei/v2/cmd/nuclei
+          GO111MODULE=on go install github.com/projectdiscovery/subfinder/v2/cmd/subfinder@latest
+          GO111MODULE=on go install github.com/projectdiscovery/httpx/cmd/httpx@latest
+          GO111MODULE=on go install github.com/projectdiscovery/nuclei/v2/cmd/nuclei@latest
 
       - name: Subfinder Scan
         run: subfinder -silent -d ${{env.TARGET_DOMAIN}} -o reports/subfinder/${{env.TARGET_DOMAIN}}_subfinder.txt
