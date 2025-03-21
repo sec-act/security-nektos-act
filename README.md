@@ -29,15 +29,13 @@ dir structure should look
 ### Run
 
 Scan single target(url) and single job
+
 ```
-act -b . -W workflow-ymls/scan-target.yml --env TARGET_URL=https://your-target.com -j nmap_scan
-```
-```
-act -b . -W workflow-ymls/scan-target.yml --env TARGET_URL=https://your-target.com -j nuclei_scan
+act -b . -W workflow-ymls/scan-target.yml --env TARGET_URL=https://your-target.com -j nuclei-scan
 ```
 
 ```
-act -b . -W workflow-ymls/scan-target.yml --env TARGET_URL=https://your-target.com -j gobuster_scan
+act -b . -W workflow-ymls/scan-target.yml --env TARGET_URL=https://your-target.com -j nuclei-scan-list
 ```
 
 container reuse mode (saves build time but your container keep running it seems)
