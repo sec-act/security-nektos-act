@@ -27,11 +27,15 @@ dir structure should look
   |- workflow-ymls
 ```
 ### Run
+Perform recon
+```
+act -b . -W workflow-ymls/recon.yml -j recon-domain --env TARGET_DOMAIN=your-target.com
+```
 
-Scan single target(url) and single job
+Run single job
 
 ```
-act -b . -W workflow-ymls/scan-target.yml --env TARGET_URL=https://your-target.com -j nuclei-scan
+act -b . -W workflow-ymls/scan-target.yml --env TARGET_DOMAIN=your-target.com -j nuclei-scan
 ```
 
 ```
@@ -43,10 +47,6 @@ container reuse mode (saves build time but your container keep running it seems)
 act -b . -W workflow-ymls/scan-target.yml -j xxx --env TARGET_URL=https://your-target.com -r
 ```
 
-Perform recon
-```
-act -b . -W workflow-ymls/recon.yml -j recon-domain --env TARGET_DOMAIN=your-target.com
-```
 
 ### Output Results
 ```
