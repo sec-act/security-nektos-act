@@ -35,11 +35,11 @@ act -b . -W workflow-ymls/recon.yml -j recon-domain --env TARGET_DOMAIN=your-tar
 Run single job
 
 ```
-act -b . -W workflow-ymls/scan-target.yml --env TARGET_DOMAIN=your-target.com -j nuclei-scan
+act -b . -W workflow-ymls/scan-target.yml --env TARGET_DOMAIN=your-target.com -j nuclei-scan-list
 ```
 
 ```
-act -b . -W workflow-ymls/scan-target.yml --env TARGET_URL=https://your-target.com -j nuclei-scan-list
+act -b . -W workflow-ymls/scan-target.yml --env TARGET_URL=https://your-target.com -j nuclei-scan
 ```
 
 container reuse mode (saves build time but your container keep running it seems)
