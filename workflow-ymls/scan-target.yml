@@ -82,6 +82,6 @@ jobs:
           GO111MODULE=on go install -v github.com/owasp-amass/amass/v4/...@master
       
       - name: Run Amass
-        run: amass enum -active -d ${{env.TARGET_DOMAIN}} -o reports/amass/${{env.TARGET_DOMAIN}}_amass_passive.txt
+        run: amass enum -active -d ${{env.TARGET_DOMAIN}} -o reports/amass/${{env.TARGET_DOMAIN}}_amass_active.txt
 
 # you can add more tools 
