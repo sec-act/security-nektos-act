@@ -10,12 +10,12 @@
 
 ### Setup
 ```
-git clone https://github.com/sec-act/security-auto-with-github-actions.git
-cd security-auto-with-github-actions
+git clone https://github.com/sec-act/security-nektos-act.git
+cd security-nektos-act
 ```
 dir structure should look
 ```
-  security-auto-with-github-actions
+  security-nektos-act
   |
   |- reports (create if not present with sub-dirs)
   |  |-nuclei
