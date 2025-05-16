@@ -1,0 +1,26 @@
+name: Fuzzers
+
+on: workflow_dispatch # manual trigger
+
+jobs:
+  ffuf-scan:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v4
+
+      # Install golang
+      - name: Setup golang
+        uses: actions/setup-go@v5
+        with:
+          go-version: '^1.21'
+
+      - name: Setup go tools
+        run: |
+          go version
+          GO111MODULE=on go install github.com/ffuf/ffuf/v2@latest
+
+      - name: ffuf fuzzer
+        run: ffuf -w wordlist/quickhits.txt -u ${{env.TARGET_URL}}/FUZZ -mc 200 -o reports/ffuf/$(echo ${{env.TARGET_URL}} | awk -F[/:] '{print $4}')_output.txt
+ 
